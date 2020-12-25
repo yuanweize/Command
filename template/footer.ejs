@@ -1,0 +1,17 @@
+<div class="footer <%if(type=='index'){%> footer_index <%}%>">
+  <a target="_blank" href="https://github.com/yuanweize/linux-command/new/master/command">添加命令</a> |
+  <a href="<%=relative_path%>hot.html">命令列表</a>
+  <br />
+  <a href="https://github.com/yuanweize/linux-command">Github</a> |
+  <a href="https://github.com/yuanweize/linux-command">短地址：https://git.io/linux</a>
+  <br />
+  收藏请使用Ctrl+D或者Command+d
+  <br /> 共搜集到
+  <span id="commands_info">
+    <%=describe.command_length?describe.command_length:''%>
+  </span> 个Linux命令
+</div>
+<script type="text/javascript" src="<%=relative_path%>js/dt.js?v=<%=new Date().getTime()%>"></script>
+<script type="text/javascript" src="<%=relative_path%>js/index.js?v=<%=new Date().getTime()%>"></script>
+</body>
+</html>
