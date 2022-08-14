@@ -49,7 +49,7 @@ help：显示网络对象支持的操作命令的帮助信息。
 
 ###  实例 
 
-```shellbash
+```shell
 ip link show                     # 显示网络接口信息
 ip link set eth0 up             # 开启网卡
 ip link set eth0 down            # 关闭网卡
@@ -133,4 +133,4 @@ default via 112.124.15.247 dev eth1
 ip link | grep -E '^[0-9]' | awk -F: '{print $2}'
 ```
 
-<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+

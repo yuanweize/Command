@@ -18,8 +18,10 @@ sync(选项)
 ###  选项
 
 ```shell
+-d, --data             只同步文件数据，不同步不必要的元数据
+-f, --file-system      同步包含这些文件的文件系统
 --help：显示帮助；
- --version：显示版本信息。
+--version：显示版本信息。
 ```
 
 ###  buffer与cache
@@ -34,4 +36,4 @@ sync命令用来flush文件系统buffer，这样数据才会真正的写到磁�
 如果不去手动的输入sync命令来真正的去写磁盘，linux系统也会周期性的去sync数据。
 
 
-<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+

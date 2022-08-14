@@ -76,7 +76,7 @@ T：按运行时间排序
 左右键或Home， End : 移动列表  
 Space(空格) : 标记/取消标记一个进程。命令可以作用于多个进程，例如 "kill"，将应用于所有已标记的进程  
 
-```shell
+```
 
 
 ### Htop设定
@@ -126,4 +126,3 @@ F7表示减小nice值(增大优先级)，F8增大nice值(减小优先级)，选�
 **F10:退出htop**
 
 
-<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

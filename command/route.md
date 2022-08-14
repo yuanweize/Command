@@ -78,7 +78,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
  **添加网关/设置网关：** 
 
 ```shell
-route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0    #增加一条到达244.0.0.0的路由。
+route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0    #增加一条到达224.0.0.0的路由。
 ```
 
  **屏蔽一条路由：** 
@@ -102,4 +102,3 @@ route add default gw 192.168.120.240
 ```
 
 
-<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->

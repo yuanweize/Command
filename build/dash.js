@@ -6,7 +6,7 @@ const pkg = require('../package.json');
 
 const DATA_DIR = pathResolve(__dirname, '../assets/');
 const INDEX_JSON_PATH = pathResolve(__dirname, '../dist/data.json');
-const DETAIL_DIR = pathResolve(__dirname, '../docs/');
+const DETAIL_DIR = pathResolve(__dirname, '../.deploy/');
 const CP_DIRS = [
   pathResolve(DETAIL_DIR, 'c'),
   pathResolve(DETAIL_DIR, 'css'),
@@ -15,7 +15,7 @@ const CP_DIRS = [
 ];
 
 const DOC_NAME = pkg.name;
-const DOC_ROOT_DIR = pathResolve(__dirname, `../docs/${DOC_NAME}`);
+const DOC_ROOT_DIR = pathResolve(__dirname, `../.deploy/${DOC_NAME}`);
 const DOCSET_DIR = `${DOC_ROOT_DIR}.docset`;
 const RESOURCES_DIR = `${DOCSET_DIR}/Contents/Resources/`;
 
@@ -100,7 +100,7 @@ async function buildApi(dbPath) {
 
 function compressing() {
   new Promise((resolve, reject) => {
-    const outputPaht = pathJoin(process.cwd(), 'docs', 'linux-command.docset.zip');
+    const outputPaht = pathJoin(process.cwd(), '.deploy', 'linux-command.docset.zip');
     // create a file to stream archive data to.
     const output = fs.createWriteStream(outputPaht);
     const archive = archiver('zip', {
@@ -133,7 +133,7 @@ function compressing() {
     
     // pipe archive data to the file
     archive.pipe(output);
-    archive.directory(pathJoin(process.cwd(), 'docs', 'linux-command.docset'), false);
+    archive.directory(pathJoin(process.cwd(), '.deploy', 'linux-command.docset'), false);
     archive.finalize();
   })
 }
