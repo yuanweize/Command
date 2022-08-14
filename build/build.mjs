@@ -6,7 +6,7 @@ import UglifyJS from 'uglify-js';
 import { create } from 'markdown-to-html-cli';
 import _ from 'colors-cli/toxic.js';
 
-const deployDir = path.resolve(process.cwd(), '.deploy');
+const deployDir = path.resolve(process.cwd(), 'docs');
 const faviconPath = path.resolve(process.cwd(), 'template', 'img', 'favicon.ico');
 const rootIndexJSPath = path.resolve(process.cwd(), 'template', 'js', 'index.js');
 const dataJsonPath = path.resolve(process.cwd(), 'dist', 'data.json');
