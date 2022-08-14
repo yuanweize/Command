@@ -8,6 +8,7 @@ import _ from 'colors-cli/toxic.js';
 
 const deployDir = path.resolve(process.cwd(), 'docs');
 const faviconPath = path.resolve(process.cwd(), 'template', 'img', 'favicon.ico');
+const CNAMEPath = path.resolve(process.cwd(), 'template', 'CNAME');
 const rootIndexJSPath = path.resolve(process.cwd(), 'template', 'js', 'index.js');
 const dataJsonPath = path.resolve(process.cwd(), 'dist', 'data.json');
 const dataJsonMinPath = path.resolve(process.cwd(), 'dist', 'data.min.json');
@@ -23,6 +24,7 @@ const contributorsPath = path.resolve(process.cwd(), 'CONTRIBUTORS.svg');
     await FS.ensureDir(path.resolve(deployDir, 'css'));
     await FS.ensureDir(path.resolve(deployDir, 'c'));
     await FS.copySync(faviconPath, path.resolve(deployDir, 'img', 'favicon.ico'));
+    await FS.copySync(CNAMEPath, path.resolve(deployDir, 'CNAME'));
     
     await FS.copyFile(path.resolve(process.cwd(), 'template', 'js', 'copy-to-clipboard.js'), path.resolve(deployDir, 'js', 'copy-to-clipboard.js'));
     await FS.copyFile(path.resolve(process.cwd(), 'node_modules/@wcj/dark-mode/main.js'), path.resolve(deployDir, 'js', 'dark-mode.min.js'));
@@ -83,18 +85,18 @@ const contributorsPath = path.resolve(process.cwd(), 'CONTRIBUTORS.svg');
       svgStr = (await FS.readFile(contributorsPath)).toString();
     }
 
-    await createTmpToHTML(
-      path.resolve(process.cwd(), 'template', 'contributors.ejs'),
-      path.resolve(deployDir, 'contributors.html'),
-      {
-        p: '/contributors.html',
-        n: '搜索',
-        d: '最专业的Linux命令大全，命令搜索引擎，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。',
-        arr: jsonData.data,
-        command_length: jsonData.data.length,
-        contributors: svgStr,
-      }
-    );
+    // await createTmpToHTML(
+    //   path.resolve(process.cwd(), 'template', 'contributors.ejs'),
+    //   path.resolve(deployDir, 'contributors.html'),
+    //   {
+    //     p: '/contributors.html',
+    //     n: '搜索',
+    //     d: '最专业的Linux命令大全，命令搜索引擎，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。',
+    //     arr: jsonData.data,
+    //     command_length: jsonData.data.length,
+    //     contributors: svgStr,
+    //   }
+    // );
     
     await Promise.all(jsonData.data.map(async (item, idx) => {
       item.command_length = jsonData.data.length;
