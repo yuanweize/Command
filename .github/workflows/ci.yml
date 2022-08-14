@@ -14,7 +14,7 @@ jobs:
         node-version: 16
 
     - name: Generate Contributors Images
-      uses: yuanweize/github-action-contributors@main
+      uses: jaywcjlove/github-action-contributors@main
       with:
         filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
         avatarSize: 42
@@ -33,13 +33,13 @@ jobs:
 
     - name: Create Tag
       id: create_tag
-      uses: yuanweize/create-tag-action@v1.3.6
+      uses: jaywcjlove/create-tag-action@v1.3.6
       with:
         package-path: ./package.json
 
     - name: get tag version
       id: tag_version
-      uses: yuanweize/changelog-generator@v1.5.3
+      uses: jaywcjlove/changelog-generator@v1.5.3
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -52,7 +52,7 @@ jobs:
 
     - name: Generate Changelog
       id: changelog
-      uses: yuanweize/changelog-generator@v1.5.3
+      uses: jaywcjlove/changelog-generator@v1.5.3
       with:
         filter-author: (小弟调调™)
         filter: (^[\s]+?[R|r]elease)|(^[R|r]elease)
@@ -78,7 +78,7 @@ jobs:
 
 
           Document linux-command@${{ steps.changelog.outputs.tag }}:  
-          https://raw.githack.com/yuanweize/linux-command/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html
+          https://raw.githack.com/jaywcjlove/linux-command/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html
 
 
           ## Docker
@@ -133,14 +133,14 @@ jobs:
       run: echo ${{ github.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
     - name: Build docker image
-      run: docker build -t ghcr.io/yuanweize/linux-command:latest .
+      run: docker build -t ghcr.io/jaywcjlove/linux-command:latest .
 
     - name: Publish to GitHub registry
-      run: docker push ghcr.io/yuanweize/linux-command:latest
+      run: docker push ghcr.io/jaywcjlove/linux-command:latest
 
     - name: Tag docker image (beta) and publish to GitHub registry
       if: steps.create_tag.outputs.successful
       run: |
           echo "version: v${{ steps.changelog.outputs.version }}"
-          docker tag ghcr.io/yuanweize/linux-command:latest ghcr.io/yuanweize/linux-command:${{steps.changelog.outputs.version}}
-          docker push ghcr.io/yuanweize/linux-command:${{steps.changelog.outputs.version}}
+          docker tag ghcr.io/jaywcjlove/linux-command:latest ghcr.io/jaywcjlove/linux-command:${{steps.changelog.outputs.version}}
+          docker push ghcr.io/jaywcjlove/linux-command:${{steps.changelog.outputs.version}}
