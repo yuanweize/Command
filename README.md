@@ -10,4 +10,4 @@ Set shortcut in Chrome
 URL: `https://command.yuanweize.win/list.html#!kw=%s`
 
 
-Fork from !(https://github.com/jaywcjlove/linux-command)[https://github.com/jaywcjlove/linux-command]
+Fork from ![https://github.com/jaywcjlove/linux-command](https://github.com/jaywcjlove/linux-command)
