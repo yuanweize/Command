@@ -8,3 +8,6 @@ Set shortcut in Chrome
 ![image](https://user-images.githubusercontent.com/30067203/202830436-8c195073-5905-4a0c-8af8-ec5c9b7f87f9.png)
 
 URL: `https://command.yuanweize.win/list.html#!kw=%s`
+
+
+Fork from !(https://github.com/jaywcjlove/linux-command)[https://github.com/jaywcjlove/linux-command]
